@@ -1,0 +1,135 @@
+/**
+ * MSA Agency - Button Components
+ */
+
+/* Main Gold Button */
+.btn-main {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--accent-gold);
+    color: var(--primary-bg);
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+.btn-main, .btn-legacy {
+    margin: 15px !important; /* تباعد خارجي للأزرار عن أي عناصر حولها */
+}
+.btn-main:hover {
+    box-shadow: 0 0 20px var(--accent-gold);
+    transform: scale(1.05);
+}
+
+/* Pricing Card Button (Outlined to Filled) */
+.btn-price {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-weight: bold;
+    text-align: center;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn-price:hover, 
+.featured .btn-price {
+    background: var(--accent-gold);
+    color: var(--primary-bg);
+    box-shadow: 0 0 20px var(--accent-gold);
+}
+/* --- تعديلات خاصة لصفحة الخدمات فقط لضمان ظهور الكلام --- */
+
+/* تأمين ظهور الكلام في زراير صفحة الخدمات */
+.services-page-wrapper .btn-price {
+    background: transparent;
+    color: var(--accent-gold) !important; /* التأكد إن اللون دهبي */
+    border: 1px solid var(--accent-gold);
+}
+
+/* ستايل الزرار لما يكون الماوس عليه أو لو الكرت "Featured" */
+.services-page-wrapper .btn-price:hover, 
+.services-page-wrapper .price-card.featured .btn-price {
+    background: var(--accent-gold) !important;
+    color: #020812 !important; /* لون غامق عشان الكلام يبان فوق الدهبي */
+    box-shadow: 0 0 20px var(--accent-gold);
+}
+
+/* لو الزرار جوه سكشن الـ alt-bg (الخلفية البديلة) */
+.services-page-wrapper .alt-bg .btn-price {
+    border-color: var(--accent-gold);
+}
+
+/* منع تداخل الهوم بيدج: الزراير اللي برا .services-page-wrapper هتفضل زي ما هي */
+
+/* ==========================================================
+   RESPONSIVE DESIGN - MOBILE & TABLET
+   ========================================================== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .btn-main {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+    }
+
+    .btn-price {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    .btn-legacy {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile (under 768px) */
+@media (max-width: 768px) {
+    .btn-main {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    .btn-price {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .btn-legacy {
+        padding: 10px 20px !important;
+        font-size: 0.85rem;
+    }
+
+    .btn-legacy::before {
+        width: 40%;
+    }
+}
+
+/* Small Mobile (under 480px) */
+@media (max-width: 480px) {
+    .btn-main {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    .btn-price {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .btn-legacy {
+        padding: 8px 15px !important;
+        font-size: 0.75rem;
+    }
+
+    .btn-main, .btn-legacy {
+        margin: 10px !important;
+    }
+}

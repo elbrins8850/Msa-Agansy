@@ -1,0 +1,90 @@
+/**
+ * MSA Agency - Base Styles & Scrollbar
+ */
+main {
+    padding-top: var(--nav-height);
+    min-height: 100vh;
+}
+
+/* Responsive main padding for different screen sizes */
+@media (max-width: 768px) {
+    main {
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding-top: 60px;
+    }
+}
+
+/* 1. تخصيص عرض السكرول بار */
+/* Custom Scrollbar - MSA Cyber Edition */
+::-webkit-scrollbar {
+    width: 8px; /* خليه أنحف شوية عشان يبان بريميوم */
+}
+
+::-webkit-scrollbar-track {
+    background: #020b1a; /* نفس لون خلفية الموقع الغامقة */
+}
+
+::-webkit-scrollbar-thumb {
+    /* تدرج من السيان الكهربي للبنفسجي الموف الخاص باللوجو */
+    background: linear-gradient(to bottom, #00f3ff, #ee82c0); 
+    border-radius: 20px;
+    border: 2px solid #020b1a; /* بيعمل مسافة احترافية حول المقبض */
+    box-shadow: inset 0 0 5px rgba(0, 243, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /* عند الهوفر يقلب للدهبي اللي إنت بتحبه مع السيان */
+    background: linear-gradient(to bottom, #f2db74, #00f3ff); 
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.6);
+}
+
+/* لدعم متصفح فايرفوكس */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #00f3ff #020b1a;
+}
+
+/* RTL Specifics */
+[lang="ar"] {
+    font-family: 'Cairo', sans-serif;
+}
+body {
+    background-color: var(--primary-bg);
+    /* رسم الشبكة الزرقاء */
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-attachment: fixed;
+}
+
+/* إضافة توهج (Glow) في نص الشاشة */
+body::after {
+    content: "";
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw; height: 80vh;
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.05) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(var(--glass-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle, black, transparent 80%);
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}

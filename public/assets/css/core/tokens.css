@@ -1,0 +1,27 @@
+/**
+ * MSA Agency - Unified Design Tokens
+ * Version: 2026 Cyber-Cyan Edition
+ */
+:root {
+    /* Background: Deep night blue */
+    --primary-bg: #020b1a; 
+    
+    /* Primary Accent: Electric Cyan (Unified) */
+    --accent-gold: #00f3ff; 
+    
+    /* Secondary Accent: Lighter Cyan for Glow effects (Removed Purple) */
+    --accent-pink: #00f3ff; 
+    
+    /* Typography Colors */
+    --text-white: #ffffff;
+    --text-gray: #b0a8ba;
+    
+    /* UI Glassmorphism Settings */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(0, 243, 255, 0.2);
+    
+    /* Smooth Transitions */
+    --transition: all 0.3s ease;
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --nav-height: 100px;
+}

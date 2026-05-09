@@ -1,0 +1,89 @@
+/**
+ * MSA Agency - Footer & Social Icons
+ */
+.footer-grid-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(242, 219, 116, 0.1);
+}
+
+[lang="ar"] .footer-grid-wrapper { text-align: right; }
+
+.footer-heading { color: var(--accent-gold); margin-bottom: 25px; }
+
+.hologram-social-grid { display: flex; gap: 15px; }
+
+.hologram-icon-sm {
+    width: 40px; height: 40px;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-gold);
+    transition: 0.4s;
+    background: rgba(242, 219, 116, 0.05);
+}
+
+.hologram-icon-sm:hover {
+    background: var(--accent-gold);
+    color: var(--primary-bg);
+    box-shadow: 0 0 20px var(--accent-gold);
+    transform: translateY(-5px);
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN - MOBILE & TABLET
+   ========================================================== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .footer-grid-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+/* Mobile (under 768px) */
+@media (max-width: 768px) {
+    .footer-grid-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 30px;
+    }
+
+    .footer-heading {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .hologram-social-grid {
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .hologram-icon-sm {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Small Mobile (under 480px) */
+@media (max-width: 480px) {
+    .footer-grid-wrapper {
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footer-heading {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .hologram-icon-sm {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,413 @@
+/**
+ * MSA Agency - Services & Pricing Detail Styles
+ * High-end pricing table logic with Featured focus.
+ */
+
+/* Main Page Background & Headers */
+.services-page-wrapper {
+    background: radial-gradient(circle at top, #211533 0%, #0f0c29 100%);
+    min-height: 100vh;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title.text-gold {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(242, 219, 116, 0.3);
+}
+
+.section-subtitle {
+    color: var(--accent-pink);
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Pricing Grid Logic */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* Individual Price Card */
+.price-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(242, 219, 116, 0.1);
+    border-radius: 30px;
+    padding: 50px 30px;
+    position: relative;
+    transition: var(--transition-bounce);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Featured / Most Popular Logic */
+.price-card.featured {
+    border: 2px solid var(--accent-gold);
+    background: rgba(242, 219, 116, 0.05);
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-pink);
+}
+
+.price-card.featured:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+/* Badge Styling */
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-gold);
+    color: var(--primary-bg);
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Price Typography */
+.plan-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--text-white);
+}
+
+.price {
+    font-size: 4rem;
+    color: var(--accent-gold);
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.price span {
+    font-size: 1.5rem;
+    vertical-align: super;
+    margin-right: 5px;
+}
+
+/* Features List */
+.plan-features {
+    list-style: none;
+    margin-bottom: 40px;
+    flex-grow: 1; /* Pushes button to bottom */
+}
+
+.plan-features li {
+    padding: 12px 0;
+    color: var(--text-gray);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.plan-features li::before {
+    content: '✦';
+    color: var(--accent-gold);
+    margin: 0 10px;
+}
+
+/* Secondary Background Utility */
+.alt-bg {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(242, 219, 116, 0.05);
+    border-bottom: 1px solid rgba(242, 219, 116, 0.05);
+}
+/* ضيف دي في الـ CSS بتاعك عشان الـ Featured card ينطق */
+.price-card.featured {
+    background: linear-gradient(145deg, rgba(242, 219, 116, 0.1), rgba(0, 243, 255, 0.05));
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 0 30px rgba(242, 219, 116, 0.2);
+}
+
+/* تعديل السعر ليكون متناسق مع العربي */
+[dir="rtl"] .price span {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+/* تنسيق الزرار داخل الكارت */
+.price-card .btn-main {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+/* مسافة أمان في آخر الصفحة */
+.pb-100 {
+    padding-bottom: 150px !important; /* مسافة كافية تمنع تداخل الفوتر */
+}
+
+.pricing-grid {
+    align-items: flex-start; /* بيخلي الكروت تبدأ من فوق وميطولوش بشكل عشوائي */
+}
+/* تظبيط حاوية صورة الهيرو */
+.service-main-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 40px; /* دوران كبير زي الصورة */
+    border: 2px solid #00f3ff; /* برواز نيون لبني */
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.5), 
+                0 0 40px rgba(0, 243, 255, 0.2); /* هالة ضوئية */
+    display: block;
+    margin: 0 auto 40px;
+    transition: transform 0.5s ease;
+}
+
+.service-main-img:hover {
+    transform: translateY(-10px) scale(1.02); /* حركة عائمة عند الهوفر */
+    box-shadow: 0 0 30px #00f3ff, 
+                0 0 60px rgba(0, 243, 255, 0.4);
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN - MOBILE & TABLET
+   ========================================================== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .section-title.text-gold {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .price-card.featured {
+        grid-column: auto;
+        transform: scale(1.02);
+    }
+
+    .price-card {
+        padding: 40px 25px;
+    }
+
+    .price {
+        font-size: 3rem;
+    }
+
+    .plan-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .service-main-img {
+        max-width: 500px;
+        border-radius: 30px;
+    }
+}
+
+/* Mobile (under 768px) */
+@media (max-width: 768px) {
+    .services-page-wrapper {
+        padding: 30px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-title.text-gold {
+        font-size: 1.8rem;
+        letter-spacing: 1.5px;
+        text-shadow: 0 0 10px rgba(242, 219, 116, 0.2);
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .price-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .price-card.featured {
+        transform: scale(1);
+        border: 2px solid var(--accent-gold);
+    }
+
+    .price-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .price-card.featured:hover {
+        transform: translateY(-8px);
+    }
+
+    .badge {
+        top: -10px;
+        padding: 4px 15px;
+        font-size: 0.75rem;
+    }
+
+    .plan-header h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .price {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .plan-desc {
+        font-size: 0.9rem;
+    }
+
+    .plan-features {
+        margin-bottom: 30px;
+    }
+
+    .plan-features li {
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
+
+    .service-main-img {
+        max-width: 100%;
+        margin: 0 auto 30px;
+        border-radius: 25px;
+    }
+
+    .service-header-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .service-text-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .service-desc {
+        font-size: 0.95rem;
+    }
+
+    .service-features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .pb-100 {
+        padding-bottom: 100px !important;
+    }
+}
+
+/* Small Mobile (under 480px) */
+@media (max-width: 480px) {
+    .section-title.text-gold {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .pricing-grid {
+        gap: 15px;
+    }
+
+    .price-card {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .badge {
+        top: -8px;
+        padding: 3px 12px;
+        font-size: 0.65rem;
+    }
+
+    .plan-header h3 {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .price {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .plan-desc {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    .plan-features {
+        margin-bottom: 25px;
+    }
+
+    .plan-features li {
+        padding: 8px 0;
+        font-size: 0.85rem;
+    }
+
+    .plan-features li::before {
+        margin: 0 8px;
+    }
+
+    .btn-price {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .service-main-img {
+        border-radius: 20px;
+        margin: 0 auto 20px;
+        border: 1.5px solid #00f3ff;
+    }
+
+    .service-text-content h1 {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    .service-desc {
+        font-size: 0.9rem;
+    }
+
+    .feature-item h3 {
+        font-size: 1rem;
+    }
+
+    .feature-item p {
+        font-size: 0.85rem;
+    }
+
+    .pb-100 {
+        padding-bottom: 80px !important;
+    }
+}

@@ -1,0 +1,372 @@
+/**
+ * MSA Agency - Contact Page Styles
+ * Version: 2026 Cyber-Engineering Edition
+ */
+
+/* ==========================================================
+   1. MAIN GRID LAYOUT
+   ========================================================== */
+.contact-grid {
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.contact-info-side { 
+    flex: 1; 
+    position: relative;
+    overflow: visible; 
+}
+
+.contact-form-side { 
+    flex: 1.2; 
+    background: rgba(2, 11, 26, 0.6); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px; 
+    border-radius: 20px; 
+    border: 1px solid var(--glass-border); 
+    box-shadow: 0 15px 50px rgba(0, 243, 255, 0.05);
+}
+
+.contact-form-side h2 {
+    color: var(--accent-gold);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+/* ==========================================================
+   2. FLOATING IMAGE EFFECTS
+   ========================================================== */
+.contact-img {
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    border: 2px solid var(--accent-gold); 
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2), 0 0 40px rgba(0, 243, 255, 0.1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    object-fit: cover;
+    animation: floatingImage 4s ease-in-out infinite;
+    margin-bottom: 40px;
+}
+
+.contact-img:hover {
+    transform: scale(1.03) translateY(-5px); 
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+    border-color: #fff;
+}
+
+@keyframes floatingImage {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ==========================================================
+   3. INFO BOXES (Location, Email, Phone)
+   ========================================================== */
+.info-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 243, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    will-change: transform;
+}
+
+.info-item:hover {
+    background: rgba(0, 243, 255, 0.05);
+    border-color: var(--accent-gold);
+    transform: translateX(15px); 
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+}
+
+.hologram-icon-mini {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--accent-gold); 
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    transition: 0.4s;
+}
+
+.info-item:hover .hologram-icon-mini {
+    background: var(--accent-gold);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-gold);
+    transform: rotateY(180deg);
+}
+
+.info-text h4 {
+    margin-bottom: 5px;
+    color: var(--text-white);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.info-item:hover .info-text h4 {
+    color: var(--accent-gold);
+    text-shadow: 0 0 8px rgba(0, 243, 255, 0.5);
+}
+
+/* ==========================================================
+   4. SMART CYBER FORM (Floating Labels & Inputs)
+   ========================================================== */
+.input-group { 
+    position: relative; 
+    margin-bottom: 35px; 
+}
+
+.input-group input, 
+.input-group textarea, 
+.input-group select {
+    width: 100%; 
+    padding: 16px 20px; 
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border); 
+    border-radius: 10px; 
+    color: #fff;
+    font-size: 1rem;
+    transition: 0.3s;
+    appearance: none; /* إخفاء سهم الـ Select الافتراضي */
+}
+
+/* Custom Select Arrow */
+.input-group select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300f3ff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px top 50%;
+    background-size: 12px auto;
+}
+[dir="rtl"] .input-group select {
+    background-position: left 20px top 50%;
+}
+
+.input-group select option {
+    background: var(--primary-bg);
+    color: #fff;
+}
+
+.input-group label {
+    position: absolute; 
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%);
+    color: var(--text-gray); 
+    transition: 0.3s ease; 
+    pointer-events: none;
+}
+
+.input-group textarea ~ label {
+    top: 30px;
+}
+
+/* رفع الـ Label لو الحقل معمول له Focus أو لو فيه داتا (حتى لو Select) */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group input[value]:not([value=""]) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label,
+.input-group select:focus ~ label,
+.input-group select:valid ~ label {
+    top: -10px; 
+    left: 15px; 
+    font-size: 0.8rem; 
+    color: var(--accent-gold);
+    background: var(--primary-bg); 
+    padding: 0 10px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+    outline: none;
+    background: rgba(0, 243, 255, 0.05);
+}
+
+/* ==========================================================
+   5. RTL SUPPORT (Arabic)
+   ========================================================== */
+[lang="ar"] .info-item:hover { transform: translateX(-15px); }
+[lang="ar"] .input-group label { left: auto; right: 20px; }
+[lang="ar"] .input-group input:focus ~ label,
+[lang="ar"] .input-group input:not(:placeholder-shown) ~ label,
+[lang="ar"] .input-group input[value]:not([value=""]) ~ label,
+[lang="ar"] .input-group textarea:focus ~ label,
+[lang="ar"] .input-group textarea:not(:placeholder-shown) ~ label,
+[lang="ar"] .input-group select:focus ~ label,
+[lang="ar"] .input-group select:valid ~ label { 
+    left: auto; 
+    right: 15px; 
+}
+
+/* ==========================================================
+   6. MOBILE RESPONSIVENESS
+   ========================================================== */
+@media (max-width: 992px) {
+    .contact-grid { flex-direction: column; gap: 50px; }
+    .contact-form-side { padding: 30px 20px; }
+    .contact-form-side h2 { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-form-side {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .contact-form-side h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .contact-img {
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+
+    .info-boxes {
+        gap: 15px;
+    }
+
+    .info-item {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .info-item:hover {
+        transform: translateX(10px);
+    }
+
+    [lang="ar"] .info-item:hover {
+        transform: translateX(-10px);
+    }
+
+    .hologram-icon-mini {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .info-text h4 {
+        font-size: 1rem;
+    }
+
+    .info-text p {
+        font-size: 0.9rem;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        padding: 12px 15px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-grid {
+        gap: 30px;
+    }
+
+    .contact-form-side {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+
+    .contact-form-side h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .contact-img {
+        border-radius: 15px;
+        margin-bottom: 20px;
+        border-width: 1.5px;
+    }
+
+    .info-boxes {
+        gap: 12px;
+    }
+
+    .info-item {
+        padding: 12px;
+        border-radius: 10px;
+        gap: 15px;
+    }
+
+    .info-item:hover {
+        transform: translateX(8px);
+    }
+
+    [lang="ar"] .info-item:hover {
+        transform: translateX(-8px);
+    }
+
+    .hologram-icon-mini {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    .info-text h4 {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+
+    .info-text p {
+        font-size: 0.85rem;
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+    }
+
+    .input-group input,
+    .input-group textarea,
+    .input-group select {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .btn-main {
+        width: 100%;
+        padding: 12px 20px !important;
+        font-size: 0.95rem;
+    }
+}

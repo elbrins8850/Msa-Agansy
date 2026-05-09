@@ -1,0 +1,135 @@
+/**
+ * MSA MASTER STYLESHEET
+ * Version: 2026 Engineering Edition
+ */
+
+/* 1. CORE CONFIGURATION */
+@import url("core/reset.css");
+@import url("core/tokens.css");
+@import url("core/base.css");
+
+/* 2. LAYOUT ARCHITECTURE */
+@import url("layout/container.css");
+@import url("layout/navbar.css");
+@import url("layout/footer.css");
+
+/* 3. COMPONENT UNITS */
+@import url("components/buttons.css");
+@import url("components/cards.css");
+@import url("components/msa-letters.css");
+
+/* 4. PAGE SPECIFIC STYLES */
+@import url("pages/home.css");
+@import url("pages/contact.css");
+@import url("pages/services-detail.css");
+@import url("pages/about.css");
+@import url("pages/news.css");
+@import url("pages/profile.css");
+
+/* ==========================================================
+   ADVANCED HUD CURSOR (Laser Mouse Effect)
+   ========================================================== */
+/* --- إرجاع الماوس للحالة الطبيعية الاحترافية --- */
+* {
+    cursor: default !important; /* الماوس العادي في كل مكان */
+}
+
+a, button, .btn-legacy, .btn-main, .lang-switch, #playBtn {
+    cursor: pointer !important; /* شكل اليد فقط عند اللينكات والزراير */
+}
+
+/* إخفاء أي تأثير قديم كان بيحول الماوس لعلامة كتابة */
+input, textarea {
+    cursor: text !important;
+}
+
+/* UI Cleanup: Removing legacy HUD cursor completely */
+#cursor-hud { display: none !important; }
+
+/* Active State: Triggered when hovering over interactive elements (MSA Letters) */
+#cursor-hud.hud-active {
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 243, 255, 0.05);
+    border-width: 1px;
+    box-shadow: 0 0 30px var(--accent-gold);
+}
+
+/* ==========================================================
+   FOUNDERS HUB BACKGROUND (The "Command Room" Visual)
+   ========================================================== */
+.founders-hub {
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #0a192f 0%, #020812 100%);
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Special Case for Hero Profiles */
+.huge-mode .main-letter {
+    font-size: 15rem !important; 
+    filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.3));
+}
+
+/* Background Cyber-Grid Overlay */
+.grid-overlay {
+    position: absolute;
+    inset: 0;
+    /* Drawing the Cyan grid using linear gradients */
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px; 
+    
+    /* Technical Glow Filter */
+    filter: drop-shadow(0 0 3px rgba(0, 243, 255, 0.4));
+    
+    /* Subtle Animation to breathe life into the background */
+    animation: gridPulse 8s ease-in-out infinite;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+/* Moving Scanline Animation (CRT/HUD effect) */
+.scanline {
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.1), transparent);
+    position: absolute;
+    top: -100px;
+    left: 0;
+    animation: scan 4s linear infinite;
+    z-index: 1;
+}
+
+@keyframes scan {
+    0% { top: -100px; }
+    100% { top: 100%; }
+}
+
+/* ==========================================================
+   STATS & ACHIEVEMENTS COUNTERS
+   ========================================================== */
+.achievements-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.stat-number {
+    font-size: 4rem;
+    color: var(--accent-gold);
+    font-weight: 800;
+    display: block;
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}

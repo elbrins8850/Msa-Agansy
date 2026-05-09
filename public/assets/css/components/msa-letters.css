@@ -1,0 +1,232 @@
+/**
+ * MSA Agency - Interactive Founder Letters
+ * Logic: Animates M, S, and A with Cyan popups on hover.
+ */
+
+/* 1. Layout: Forced LTR to maintain M-S-A order globally */
+.msa-letters-wrapper {
+    display: flex !important;
+    justify-content: center;
+    gap: 50px;
+    direction: ltr !important; 
+    padding: 60px 0;
+    flex-direction: row !important;
+}
+
+.msa-item {
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-bounce);
+}
+
+/* 2. Base Hollow Letter Design */
+.main-letter {
+    font-size: 9rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent-gold);
+    transition: var(--transition-bounce);
+    line-height: 1;
+}
+
+/* 3. Popup Name (Hover Interaction) */
+.pop-name {
+    position: absolute;
+    top: -40px; /* Initial hidden position */
+    left: 50%;
+    transform: translate(-50%, 20px) scale(0);
+    
+    /* Futuristic Glass UI */
+    background: rgba(2, 11, 26, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--accent-gold);
+    padding: 8px 25px;
+    border-radius: 50px;
+    
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
+    white-space: nowrap;
+    z-index: 20;
+}
+
+/* 4. Hover State Animations */
+.msa-item:hover .pop-name {
+    opacity: 1;
+    top: -70px; /* Flies out further for impact */
+    transform: translate(-50%, 0) scale(1);
+    box-shadow: 0 0 25px var(--accent-gold);
+}
+
+.msa-item:hover .main-letter {
+    color: var(--accent-gold);
+    -webkit-text-stroke: 0px;
+    text-shadow: 0 0 40px var(--accent-gold);
+    transform: translateY(-15px);
+}
+
+/* 5. Active State (Matching JS logic for selection) */
+.msa-item.active .main-letter {
+    color: #fff; /* Solid white core on selection */
+    -webkit-text-stroke: 0px;
+    text-shadow: 0 0 50px var(--accent-gold);
+    transform: translateY(-20px) scale(1.05);
+}
+
+.msa-item.active .pop-name {
+    background: var(--accent-gold);
+    color: #020b1a;
+    opacity: 1;
+    transform: translate(-50%, -10px) scale(1.1);
+}
+
+/* 6. Adaptive Responsive Design */
+@media (max-width: 992px) {
+    .main-letter {
+        font-size: 6.5rem;
+    }
+    .msa-letters-wrapper {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-letter {
+        font-size: 5rem;
+    }
+    .pop-name {
+        font-size: 1.1rem;
+        padding: 6px 18px;
+    }
+    .msa-letters-wrapper {
+        gap: 20px;
+    }
+}
+/**
+ * MSA Agency - Interactive Founder Letters
+ * Logic: Names are hidden INSIDE the letters and pop out on hover/click.
+ */
+
+/* 1. Wrapper setup - Forced LTR to keep M-S-A order correct */
+.msa-letters-wrapper {
+    display: flex !important;
+    justify-content: center;
+    gap: 50px;
+    direction: ltr !important; 
+    padding: 80px 0 40px; /* مسافة أمان من فوق عشان الاسم لما يطير */
+    flex-direction: row !important;
+}
+
+.msa-item {
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-bounce);
+}
+
+.letter-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 2. The Main Hollow Letter */
+.main-letter {
+    font-size: 10rem; /* كبرنا الحرف شوية عشان يساع الاسم جواه */
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent-gold);
+    transition: var(--transition-bounce);
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* 3. Sub-word (Marketing, Solutions, Agency) */
+.sub-word-brand {
+    color: var(--text-gray);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+/* 4. The Popup Name (Starts strictly INSIDE the letter) */
+.pop-name {
+    position: absolute;
+    top: 50%; /* متمركز جوه الحرف بالظبط */
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* مختفي بحجم صفر */
+    
+    background: rgba(2, 11, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--accent-gold);
+    padding: 8px 25px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    white-space: nowrap;
+    z-index: 20;
+}
+
+/* 5. Hover/Click State: Pops OUT of the letter */
+.msa-item:hover .pop-name,
+.msa-item:active .pop-name {
+    opacity: 1;
+    top: -30px; /* بيطير لفوق بره الحرف */
+    transform: translate(-50%, -50%) scale(1); /* بيكبر لحجمه الطبيعي */
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
+}
+
+/* التأثير على الحرف نفسه عند الوقوف عليه */
+.msa-item:hover .main-letter,
+.msa-item:active .main-letter {
+    color: rgba(0, 243, 255, 0.05); /* تلوين خفيف جداً من جوه */
+    -webkit-text-stroke: 1px var(--accent-gold);
+    text-shadow: 0 0 40px rgba(0, 243, 255, 0.5);
+    transform: translateY(-10px); /* الحرف بيترفع سنة لفوق */
+}
+
+/* تلوين الكلمة اللي تحت الحرف */
+.msa-item:hover .sub-word-brand {
+    color: var(--accent-gold);
+}
+
+/* 6. Adaptive Responsive Design */
+@media (max-width: 992px) {
+    .main-letter { font-size: 7.5rem; }
+    .msa-letters-wrapper { gap: 30px; }
+}
+
+@media (max-width: 768px) {
+    .main-letter { font-size: 5.5rem; }
+    .pop-name { font-size: 1.1rem; padding: 6px 18px; }
+    .sub-word-brand { font-size: 0.8rem; letter-spacing: 1px; }
+    .msa-letters-wrapper { gap: 20px; }
+}
+
+@media (max-width: 480px) {
+    .main-letter { font-size: 3.5rem; }
+    .pop-name { 
+        font-size: 0.9rem; 
+        padding: 5px 15px; 
+        top: -20px !important;
+    }
+    .sub-word-brand { 
+        font-size: 0.7rem; 
+        letter-spacing: 2px;
+        margin-top: 8px;
+    }
+    .msa-letters-wrapper { 
+        gap: 15px;
+        padding: 40px 0 20px;
+    }
+}

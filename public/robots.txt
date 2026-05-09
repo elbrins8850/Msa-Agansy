@@ -1,0 +1,15 @@
+# MSA Agency Robots.txt
+# Allow search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive directories
+Disallow: /assets/
+Disallow: /.git/
+
+# Specify sitemap location
+Sitemap: https://msa-agency.com/sitemap.xml
+
+# Crawl delay (in seconds)
+Crawl-delay: 1
